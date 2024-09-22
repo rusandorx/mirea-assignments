@@ -15,11 +15,11 @@ using std::endl;
 // int main(int argc, char *argv[]) {
 //   float S, p;
 //   int n;
-//   cout << "S ";
+//   cout << "S " << endl;
 //   cin >> S;
-//   cout << "p ";
+//   cout << "p " << endl;
 //   cin >> p;
-//   cout << "n ";
+//   cout << "n " << endl;
 //   cin >> n;
 //
 //   float r = p / 100;
@@ -36,7 +36,36 @@ using std::endl;
 
 // 2
 
-// int main(int argc, char *argv[]) { return 0; }
+// int main(int argc, char *argv[]) {
+//   float S, m;
+//   int n;
+//   cout << "S " << endl;
+//   cin >> S;
+//   cout << "m " << endl;
+//   cin >> m;
+//   cout << "n " << endl;
+//   cin >> n;
+//
+//   for (float p = 0.01; p < 1000; p += 0.01) {
+//     float r = float(p) / 100;
+//     float del = 12 * (pow(1 + r, n) - 1);
+//
+//     if (del == 0) {
+//       continue;
+//     }
+//
+//     if (fabs(m - S * r * pow(1 + r, n) / del) <= 0.001) {
+//       cout << std::fixed;
+//       cout.precision(2);
+//       cout << "p = " << p << "%" << endl;
+//
+//       return 0;
+//     }
+//   }
+//
+//   cout << "Couldn't calculate percentage";
+//   return 0;
+// }
 
 // 3
 
@@ -97,19 +126,19 @@ using std::endl;
 
 // 5
 
-int main(int argc, char *argv[]) {
-  std::string test = "efsalbjauemszcuasdiewqembutwfdsa";
-  int n = test.length();
-
-  for (int i = 0; i < n - 1; i++) {
-    for (int j = 0; j < n - i - 1; j++) {
-      if (test[j] > test[j + 1]) {
-        std::swap(test[j], test[j + 1]);
-      }
-    }
-  }
-
-  cout << test;
-
-  return 0;
-}
+// int main(int argc, char *argv[]) {
+//   std::string test = "efsalbjauemszcuasdiewqembutwfdsa";
+//   int n = test.length();
+//
+//   for (int i = 0; i < n - 1; i++) {
+//     for (int j = 0; j < n - i - 1; j++) {
+//       if (test[j] > test[j + 1]) {
+//         std::swap(test[j], test[j + 1]);
+//       }
+//     }
+//   }
+//
+//   cout << test;
+//
+//   return 0;
+// }
