@@ -1,4 +1,5 @@
 all:
+	# g++ practicum-3.cpp
 	g++ main.cpp
 	./a.out
 

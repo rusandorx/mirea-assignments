@@ -2,6 +2,7 @@
 #include <cstdlib>
 #include <fstream>
 #include <iostream>
+#include <map>
 #include <math.h>
 
 using namespace std;
@@ -51,3 +52,86 @@ using namespace std;
 // }
 
 // 3
+
+// float rectangleArea(float a, float b) {
+//   return a * b;
+// }
+//
+// float triangleArea(float a, float h) {
+//   return (1 / 2) * a * h;
+// }
+//
+// float circleArea(float r) {
+//   return M_PI * pow(r, 2);
+// }
+//
+// int main (int argc, char *argv[]) {
+//   cout << "rectangle, triangle or circle?" << endl;
+//   string figure;
+//   cin >> figure;
+//
+//   switch(figure) {
+//     case "rectangle":
+//       float a, b;
+//       cout << "a" << endl;
+//       cin >> a;
+//       cout << "b" << endl;
+//       cin >> b;
+//       cout << rectangleArea(a, b);
+//       break;
+//     case "triangle":
+//       float a, h;
+//       cout << "a" << endl;
+//       cin >> a;
+//       cout << "h" << endl;
+//       cin >> h;
+//       cout << triangleArea(a, h);
+//       break;
+//     case "circle":
+//       float r;
+//       cout << "r" << endl;
+//       cin >> r;
+//       cout << circleArea(r);
+//       break;
+//     default:
+//       cout << "Not a figure dumbass";
+//       break;
+//   }
+//   return 0;
+// }
+
+// 4
+
+// int main(int argc, char *argv[]) {
+//   for (int i = 0; i < 8; i++) {
+//     for (int j = 0; j < 28; j++) {
+//       if (i < 4 && j < 8) {
+//         cout << "*";
+//       } else {
+//         cout << "_";
+//       }
+//     }
+//     cout << endl;
+//   }
+//
+//   return 0;
+// }
+
+// 5
+
+// int main(int argc, char *argv[]) {
+//   // TODO: on windows
+// }
+
+// 6
+
+int main(int argc, char *argv[]) {
+  map<string, int> romanToArabic{
+      pair{"I", 1},   pair{"V", 5},   pair{"X", 10},   pair{"L", 50},
+      pair{"C", 100}, pair{"D", 500}, pair{"M", 1000},
+  };
+  // Initialize result
+  int res = 0;
+
+  return 0;
+}
