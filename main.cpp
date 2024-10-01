@@ -74,25 +74,25 @@ using namespace std;
 //   switch(figure) {
 //     case "rectangle":
 //       float a, b;
-//       cout << "a" << endl;
+//       cout << "a: ";
 //       cin >> a;
-//       cout << "b" << endl;
+//       cout << endl << "b: ";
 //       cin >> b;
-//       cout << rectangleArea(a, b);
+//       cout << endl << rectangleArea(a, b);
 //       break;
 //     case "triangle":
 //       float a, h;
-//       cout << "a" << endl;
+//       cout << "a: ";
 //       cin >> a;
-//       cout << "h" << endl;
+//       cout << endl << "h";
 //       cin >> h;
-//       cout << triangleArea(a, h);
+//       cout << endl << triangleArea(a, h);
 //       break;
 //     case "circle":
 //       float r;
-//       cout << "r" << endl;
+//       cout << "r: ";
 //       cin >> r;
-//       cout << circleArea(r);
+//       cout << endl << circleArea(r);
 //       break;
 //     default:
 //       cout << "Not a figure dumbass";
