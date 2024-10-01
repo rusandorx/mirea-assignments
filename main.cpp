@@ -126,10 +126,9 @@ using namespace std;
 // 6
 
 int main(int argc, char *argv[]) {
-  map<string, int> romanToArabic{
-      pair{"I", 1},   pair{"V", 5},   pair{"X", 10},   pair{"L", 50},
-      pair{"C", 100}, pair{"D", 500}, pair{"M", 1000},
-  };
+  map<string, int> mapping{{"I", 1},   {"V", 5},   {"X", 10},  {"L", 50},
+                           {"C", 100}, {"D", 500}, {"M", 1000}};
+
   // Initialize result
   int res = 0;
 

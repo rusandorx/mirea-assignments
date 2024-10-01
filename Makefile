@@ -1,6 +1,7 @@
 all:
+	g++ interview.cpp
 	# g++ practicum-3.cpp
-	g++ main.cpp
+	# g++ main.cpp
 	./a.out
 
 clean:
