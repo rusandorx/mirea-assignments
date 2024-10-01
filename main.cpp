@@ -3,6 +3,8 @@
 #include <fstream>
 #include <iostream>
 #include <map>
+#include <regex>
+#include <unordered_map>
 
 using namespace std;
 
@@ -146,19 +148,47 @@ using namespace std;
 //
 //   return 0;
 // }
+
 // 6
 
-// int main(int argc, char *argv[]) {
-//   map<string, int> mapping{{"I", 1},   {"V", 5},   {"X", 10},  {"L", 50},
-//                            {"C", 100}, {"D", 500}, {"M", 1000}};
+// bool isValidRoman(const string &roman) {
+//   regex romanRegex(
+//       "^(M{0,3})(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$");
+//   return regex_match(roman, romanRegex);
+// }
 //
-//   // Initialize result
-//   int res = 0;
+// int romanToArabic(const string &roman) {
+//   unordered_map<char, int> romanValues = {{'I', 1},   {'V', 5},   {'X', 10},
+//                                           {'L', 50},  {'C', 100}, {'D', 500},
+//                                           {'M', 1000}};
+//
+//   int total = 0;
+//   int prevValue = 0;
+//
+//   for (char c : roman) {
+//     int value = romanValues[c];
+//     total += (value > prevValue) ? (value - 2 * prevValue) : value;
+//     prevValue = value;
+//   }
+//
+//   return total;
+// }
+//
+// int main() {
+//   string roman;
+//   cout << "Enter a roman numeral: ";
+//   cin >> roman;
+//
+//   if (isValidRoman(roman)) {
+//     int arabic = romanToArabic(roman);
+//     cout << "Arabic number: " << arabic << endl;
+//   } else {
+//     cout << "Invalid Roman numeral." << endl;
+//   }
 //
 //   return 0;
 // }
-//
 
 // 7
 
-// int getRandom() {}
+int getRandom() {}

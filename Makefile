@@ -2,7 +2,7 @@ all:
 	# g++ interview.cpp
 	# g++ practicum-3.cpp
 	g++ main.cpp
-	./a.exe
+	./a.out
 
 clean:
 	rm a.out
