@@ -3,7 +3,6 @@
 #include <fstream>
 #include <iostream>
 #include <map>
-#include <math.h>
 
 using namespace std;
 
@@ -119,18 +118,47 @@ using namespace std;
 
 // 5
 
-// int main(int argc, char *argv[]) {
-//   // TODO: on windows
-// }
+// #include <windows.h>
+// #define WIDTH 200
+// #define HEIGHT 170
 
+// int main(int argc, char *argv[]) {
+//   HWND hwnd = GetConsoleWindow();
+//   HDC hdc = GetDC(hwnd);
+//   HPEN pen = CreatePen(PS_SOLID, 2, RGB(255, 255, 255));
+//   SelectObject(hdc, pen);
+//
+//   MoveToEx(hdc, WIDTH / 2, 0, NULL);
+//   LineTo(hdc, WIDTH / 2, HEIGHT);
+//   MoveToEx(hdc, 0, HEIGHT / 2, NULL);
+//   LineTo(hdc, WIDTH, HEIGHT / 2);
+//
+//   MoveToEx(hdc, WIDTH / 2, HEIGHT / 2, NULL);
+//
+//   SetDCPenColor(hdc, RGB(255, 0, 0));
+//   for (float x = -8.0f; x <= 8.0f; x += 0.01f) {
+//     MoveToEx(hdc, 10 * x + WIDTH / 2, -10 * sin(x) + HEIGHT / 2, NULL);
+//     LineTo(hdc, 10 * x + WIDTH / 2, -10 * sin(x) + HEIGHT / 2);
+//   }
+//
+//   ReleaseDC(hwnd, hdc);
+//   cin.get();
+//
+//   return 0;
+// }
 // 6
 
-int main(int argc, char *argv[]) {
-  map<string, int> mapping{{"I", 1},   {"V", 5},   {"X", 10},  {"L", 50},
-                           {"C", 100}, {"D", 500}, {"M", 1000}};
+// int main(int argc, char *argv[]) {
+//   map<string, int> mapping{{"I", 1},   {"V", 5},   {"X", 10},  {"L", 50},
+//                            {"C", 100}, {"D", 500}, {"M", 1000}};
+//
+//   // Initialize result
+//   int res = 0;
+//
+//   return 0;
+// }
+//
 
-  // Initialize result
-  int res = 0;
+// 7
 
-  return 0;
-}
+// int getRandom() {}
