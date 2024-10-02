@@ -2,7 +2,6 @@
 #include <cstdlib>
 #include <fstream>
 #include <iostream>
-#include <map>
 #include <regex>
 #include <unordered_map>
 
@@ -13,11 +12,13 @@ using namespace std;
 // int main(int argc, char *argv[]) {
 //   setlocale(0, "");
 //
-//   srand((unsigned int)time(NULL));
-//
 //   ofstream out("sum.txt");
+//   cout << "Enter 10 numbers: " << endl;
 //   for (int i = 0; i < 10; i++) {
-//     out << rand() % int(pow(2, 6)) << endl;
+//     int number;
+//
+//     cin >> number;
+//     out << number << endl;
 //   }
 //   out.close();
 //
@@ -47,56 +48,50 @@ using namespace std;
 //   float n;
 //   cout << "n = ";
 //   cin >> n;
-//
-//   cout << sign(n);
+
+//   cout << endl << sign(n);
 //   return 0;
 // }
 
 // 3
 
-// float rectangleArea(float a, float b) {
-//   return a * b;
-// }
-//
-// float triangleArea(float a, float h) {
-//   return (1 / 2) * a * h;
-// }
-//
-// float circleArea(float r) {
-//   return M_PI * pow(r, 2);
-// }
-//
-// int main (int argc, char *argv[]) {
-//   cout << "rectangle, triangle or circle?" << endl;
-//   string figure;
+// float rectangleArea(float a, float b) { return a * b; }
+
+// float triangleArea(float a, float h) { return (1 / 2) * a * h; }
+
+// float circleArea(float r) { return M_PI * pow(r, 2); }
+
+// int main(int argc, char *argv[]) {
+//   cout << "1) rectangle 2) triangle 3) circle?" << endl;
+//   int figure;
 //   cin >> figure;
 //
-//   switch(figure) {
-//     case "rectangle":
-//       float a, b;
-//       cout << "a: ";
-//       cin >> a;
-//       cout << endl << "b: ";
-//       cin >> b;
-//       cout << endl << rectangleArea(a, b);
-//       break;
-//     case "triangle":
-//       float a, h;
-//       cout << "a: ";
-//       cin >> a;
-//       cout << endl << "h";
-//       cin >> h;
-//       cout << endl << triangleArea(a, h);
-//       break;
-//     case "circle":
-//       float r;
-//       cout << "r: ";
-//       cin >> r;
-//       cout << endl << circleArea(r);
-//       break;
-//     default:
-//       cout << "Not a figure dumbass";
-//       break;
+//   switch (figure) {
+//   case 1:
+//     float a, b;
+//     cout << "a: ";
+//     cin >> a;
+//     cout << endl << "b: ";
+//     cin >> b;
+//     cout << endl << rectangleArea(a, b);
+//     break;
+//   case 2:
+//     float a, h;
+//     cout << "a: ";
+//     cin >> a;
+//     cout << endl << "h";
+//     cin >> h;
+//     cout << endl << triangleArea(a, h);
+//     break;
+//   case 3:
+//     float r;
+//     cout << "r: ";
+//     cin >> r;
+//     cout << endl << circleArea(r);
+//     break;
+//   default:
+//     cout << "Not a figure dumbass";
+//     break;
 //   }
 //   return 0;
 // }
@@ -106,7 +101,7 @@ using namespace std;
 // int main(int argc, char *argv[]) {
 //   for (int i = 0; i < 8; i++) {
 //     for (int j = 0; j < 28; j++) {
-//       if (i < 4 && j < 8) {
+//       if (i < 4 && j < 12) {
 //         cout << "*";
 //       } else {
 //         cout << "_";
@@ -151,29 +146,29 @@ using namespace std;
 
 // 6
 
-// bool isValidRoman(const string &roman) {
-//   regex romanRegex(
-//       "^(M{0,3})(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$");
-//   return regex_match(roman, romanRegex);
-// }
-//
-// int romanToArabic(const string &roman) {
-//   unordered_map<char, int> romanValues = {{'I', 1},   {'V', 5},   {'X', 10},
-//                                           {'L', 50},  {'C', 100}, {'D', 500},
-//                                           {'M', 1000}};
-//
-//   int total = 0;
-//   int prevValue = 0;
-//
-//   for (char c : roman) {
-//     int value = romanValues[c];
-//     total += (value > prevValue) ? (value - 2 * prevValue) : value;
-//     prevValue = value;
-//   }
-//
-//   return total;
-// }
-//
+bool isValidRoman(const string &roman) {
+  regex romanRegex(
+      "^(M{0,3})(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$");
+  return regex_match(roman, romanRegex);
+}
+
+int romanToArabic(const string &roman) {
+  unordered_map<char, int> romanValues = {{'I', 1},   {'V', 5},   {'X', 10},
+                                          {'L', 50},  {'C', 100}, {'D', 500},
+                                          {'M', 1000}};
+
+  int total = 0;
+  int prevValue = 0;
+
+  for (char c : roman) {
+    int value = romanValues[c];
+    total += (value > prevValue) ? (value - 2 * prevValue) : value;
+    prevValue = value;
+  }
+
+  return total;
+}
+
 // int main() {
 //   string roman;
 //   cout << "Enter a roman numeral: ";
@@ -191,4 +186,4 @@ using namespace std;
 
 // 7
 
-int getRandom() {}
+// int getRandom() {}
