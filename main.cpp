@@ -146,28 +146,28 @@ using namespace std;
 
 // 6
 
-bool isValidRoman(const string &roman) {
-  regex romanRegex(
-      "^(M{0,3})(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$");
-  return regex_match(roman, romanRegex);
-}
+// bool isValidRoman(const string &roman) {
+//   regex romanRegex(
+//       "^(M{0,3})(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$");
+//   return regex_match(roman, romanRegex);
+// }
 
-int romanToArabic(const string &roman) {
-  unordered_map<char, int> romanValues = {{'I', 1},   {'V', 5},   {'X', 10},
-                                          {'L', 50},  {'C', 100}, {'D', 500},
-                                          {'M', 1000}};
-
-  int total = 0;
-  int prevValue = 0;
-
-  for (char c : roman) {
-    int value = romanValues[c];
-    total += (value > prevValue) ? (value - 2 * prevValue) : value;
-    prevValue = value;
-  }
-
-  return total;
-}
+// int romanToArabic(const string &roman) {
+//   unordered_map<char, int> romanValues = {{'I', 1},   {'V', 5},   {'X', 10},
+//                                           {'L', 50},  {'C', 100}, {'D', 500},
+//                                           {'M', 1000}};
+//
+//   int total = 0;
+//   int prevValue = 0;
+//
+//   for (char c : roman) {
+//     int value = romanValues[c];
+//     total += (value > prevValue) ? (value - 2 * prevValue) : value;
+//     prevValue = value;
+//   }
+//
+//   return total;
+// }
 
 // int main() {
 //   string roman;
@@ -186,4 +186,161 @@ int romanToArabic(const string &roman) {
 
 // 7
 
-// int getRandom() {}
+// int main() {
+//   int m1 = 37;
+//   int i1 = 3;
+//   int c1 = 64;
+//
+//   int m2 = 25173;
+//   int i2 = 13849;
+//   int c2 = 65537;
+//
+//   int c;
+//   cout << "count: ";
+//   cin >> c;
+//   cout << endl;
+//
+//   int last = 0;
+//
+//   for (int i = 0; i <= c; i++) {
+//     cout << i << ": " << last << endl;
+//     last = (m1 * last + i1) % c1;
+//   }
+//
+//   last = 0;
+//
+//   for (int i = 0; i <= c; i++) {
+//     cout << i << ": " << last << endl;
+//     last = (m2 * last + i2) % c2;
+//   }
+//
+//   return 0;
+// }
+
+// 8
+
+// int main(int argc, char *argv[]) {
+//
+//   double A[3][4] = {// 3x4
+//                     {5, 2, 0, 10},
+//                     {3, 5, 2, 5},
+//                     {20, 0, 0, 0}};
+//
+//   double B[4][2] = {// 4x2
+//                     {1.20, 0.50},
+//                     {2.80, 0.40},
+//                     {5.00, 1.00},
+//                     {2.00, 1.50}};
+//   double C[3][2];
+//
+//   for (int row = 0; row < size(A); row++) {
+//     for (int col = 0; col < size(B[0]); col++) {
+//       float sum = 0;
+//       for (int i = 0; i < size(A[0]); i++) {
+//         sum += A[row][i] * B[i][col];
+//       }
+//       C[row][col] = sum;
+//     }
+//   }
+//
+//   for (int row = 0; row < size(C); row++) {
+//     for (int col = 0; col < size(C[0]); col++) {
+//       cout << C[row][col] << "   ";
+//     }
+//     cout << endl;
+//   }
+//
+//   int maxMoney = 0;
+//   int minMoney = 0;
+//
+//   for (int i = 1; i < 3; i++) {
+//     if (C[i][0] > C[maxMoney][0]) {
+//       maxMoney = i;
+//     }
+//     if (C[i][0] < C[minMoney][0]) {
+//       minMoney = i;
+//     }
+//   }
+//
+//   cout << "Max Seller: #" << maxMoney + 1 << " - " << C[maxMoney][0] << endl;
+//   cout << "Min Seller: #" << minMoney + 1 << " - " << C[minMoney][0] << endl;
+//
+//   int maxCommissions = 0;
+//   int minCommissions = 0;
+//
+//   for (int i = 1; i < 3; i++) {
+//     if (C[i][1] > C[maxCommissions][1]) {
+//       maxCommissions = i;
+//     }
+//     if (C[i][1] < C[minCommissions][1]) {
+//       minCommissions = i;
+//     }
+//   }
+//
+//   cout << "Max Commisions: #" << maxCommissions + 1 << " - "
+//        << C[maxCommissions][1] << endl;
+//   cout << "Min Commisions: #" << minCommissions + 1 << " - "
+//        << C[minCommissions][1] << endl;
+//
+//   double sumMoney = 0;
+//   for (int row = 0; row < size(C); row++) {
+//     sumMoney += C[row][0];
+//   }
+//
+//   cout << "Sum money: " << sumMoney << endl;
+//
+//   double sumCommissions = 0;
+//
+//   for (int row = 0; row < size(C); row++) {
+//     sumCommissions += C[row][1];
+//   }
+//
+//   cout << "Sum commissions: " << sumCommissions << endl;
+//
+//   double fullMoney = 0;
+//
+//   for (int row = 0; row < size(C); row++) {
+//     fullMoney += C[row][0] + C[row][1];
+//   }
+//
+//   cout << "Full money: " << fullMoney << endl;
+//   return 0;
+// }
+
+// 9
+
+double getValue(string s, int base) {
+  unordered_map<char, int> char_to_int = {
+      {'0', 0},  {'1', 1},  {'2', 2},  {'3', 3}, {'4', 4},  {'5', 5},
+      {'6', 6},  {'7', 7},  {'8', 8},  {'9', 9}, {'A', 10}, {'B', 11},
+      {'C', 12}, {'D', 13}, {'E', 14}, {'F', 15}};
+
+  int n = 0;
+
+  for (int i = 0; i < size(s); i++) {
+
+    n += char_to_int[s[size(s) - 1 - i]] * pow(base, i);
+    cout << n << endl;
+  }
+
+  return n;
+}
+
+string toNewBase(int number, int base) {
+  unordered_map<int, string> int_to_char = {
+      {0, "0"},  {1, "1"},  {2, "2"},  {3, "3"}, {4, "4"},  {5, "5"},
+      {6, "6"},  {7, "7"},  {8, "8"},  {9, "9"}, {10, "A"}, {11, "B"},
+      {12, "C"}, {13, "D"}, {14, "E"}, {15, "F"}};
+
+  string newNumber = "";
+  while (number) {
+    newNumber += (number % base);
+  }
+}
+
+int main(int argc, char *argv[]) {
+  string line;
+  cin >> line;
+  cout << getValue(line, 4);
+  return 0;
+}
