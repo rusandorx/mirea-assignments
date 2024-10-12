@@ -5,8 +5,9 @@ class CacheNode {
 public:
   int key;
   int value;
-  CacheNode *right;
+
   CacheNode *left;
+  CacheNode *right;
 
   CacheNode(int key, int value) {
     this->key = key;
@@ -15,11 +16,12 @@ public:
 };
 
 class LRUCache {
-public:
   map<int, CacheNode *> cache;
   int capacity;
+
   CacheNode *left;
   CacheNode *right;
+
   LRUCache(int capacity) {
     this->capacity = capacity;
     this->cache = {};
@@ -49,38 +51,31 @@ public:
     node->right = this->right;
   }
 
+public:
   int get(int key) {
-    if (!this->cache.count(key)) {
+    if (this->cache.find(key) == this->cache.end()) {
       return -1;
     }
 
     CacheNode *node = this->cache[key];
     this->remove(node);
     this->push(node);
-
     return node->value;
   }
 
-  void put(int key, int value) {
-    if (this->cache.count(key)) {
+  int put(int key, int value) {
+    if (this->cache.find(key) != this->cache.end()) {
       this->remove(cache[key]);
     }
 
-    CacheNode *node = this->cache[key];
+    CacheNode *node = new CacheNode(key, value);
     this->push(node);
-    this->cache[key] = node;
+    this->cache.insert({key, node});
 
     if (this->cache.size() > this->capacity) {
-      CacheNode *toDelete = this->left->right;
-      this->remove(toDelete);
-      map<int, CacheNode *>::iterator iter = this->cache.find(toDelete->key);
-      this->cache.erase(iter);
+      CacheNode *toRemove = this->left->right;
+      this->remove(toRemove);
+      this->cache.erase(toRemove->key);
     }
   }
 };
-
-int main(int argc, char *argv[]) {
-  LRUCache *lru = new LRUCache(2);
-  lru->put(1, 1);
-  return 0;
-}
