@@ -288,7 +288,191 @@ using namespace std;
 
 // 5.1 (10)
 
-// int main (int argc, char *argv[]) {
+// void processFile(const string &outputFileName,
+//                  const vector<vector<string>> &data) {
+//   ofstream outputFile(outputFileName);
+//
+//   for (auto row : data) {
+//     string line = row[0] + ' ' + row[1];
+//     outputFile << line << endl;
+//   }
+//
+//   outputFile.close();
+// }
+//
+// void readFile(const string &fileName) {
+//   ifstream inputFile(fileName);
+//
+//   string line;
+//   while (getline(inputFile, line)) {
+//     cout << line << endl;
+//   }
+//   inputFile.close();
+// }
+//
+// int main(int argc, char *argv[]) {
+//   string outputFileName = "output-5-1.txt";
+//   vector<vector<string>> data;
+//
+//   cout << "Enter all students' data separated by space (name goes first, id "
+//           "goes second), each student on its "
+//           "own line. \nWhen you're done type 'done' instead."
+//        << endl;
+//
+//   while (true) {
+//     vector<string> row;
+//     string line;
+//     string current;
+//
+//     getline(cin, line);
+//     if (line == "done") {
+//       break;
+//     }
+//
+//     for (auto character : line) {
+//       if (character == ' ' && !current.empty()) {
+//         row.push_back(current);
+//         current.clear();
+//       } else {
+//         current += character;
+//       }
+//     }
+//
+//     if (!current.empty()) {
+//       row.push_back(current);
+//     }
+//
+//     if (row.size() != 2) {
+//       cout << "You should enter two elements separated by space: Name and Id"
+//            << endl;
+//       return 0;
+//     }
+//
+//     current.clear();
+//     data.push_back(row);
+//     row.clear();
+//   }
+//
+//   int orderMethod;
+//   cout << "Order data? \n1 - by name \n2 - by id \n3 - none" << endl;
+//   cin >> orderMethod;
+//
+//   if (orderMethod < 1 || orderMethod > 3) {
+//     cout << "Order method is not in range." << endl;
+//     return 0;
+//   }
+//
+//   size_t n = data.size();
+//
+//   switch (orderMethod) {
+//   case 1:
+//     for (size_t i = 0; i < n - 1; i++) {
+//       for (size_t j = 0; j < n - i - 1; j++) {
+//         if (data[j][0] > data[j + 1][0]) {
+//           std::swap(data[j], data[j + 1]);
+//         }
+//       }
+//     }
+//     break;
+//   case 2:
+//     for (size_t i = 0; i < n - 1; i++) {
+//       for (size_t j = 0; j < n - i - 1; j++) {
+//         if (data[j][1] > data[j + 1][1]) {
+//           std::swap(data[j], data[j + 1]);
+//         }
+//       }
+//     }
+//     break;
+//   }
+//
+//   processFile(outputFileName, data);
+//
+//   int shouldReadFile;
+//   cout << "Read output file?\n0 - no\n1 - yes" << endl;
+//   cin >> shouldReadFile;
+//
+//   if (shouldReadFile == 1) {
+//     readFile(outputFileName);
+//   }
+//
+//   cout << "Done" << endl;
 //
 //   return 0;
 // }
+
+// 5.2 (51)
+//
+int main(int argc, char *argv[]) {
+  vector<vector<double>> matrix;
+
+  cout << "Enter rows, each on it's own line, separated by spaces. \n When "
+          "you're done type \"done\" instead. "
+       << endl;
+
+  while (true) {
+    vector<double> row;
+    string line;
+    string current;
+
+    getline(cin, line);
+    if (line == "done") {
+      break;
+    }
+
+    for (auto character : line) {
+      if (character == ' ' && !current.empty()) {
+        row.push_back(atof(current.c_str()));
+        current.clear();
+      } else {
+        current += character;
+      }
+    }
+
+    if (!current.empty()) {
+      row.push_back(atof(current.c_str()));
+    }
+
+    current.clear();
+    matrix.push_back(row);
+    row.clear();
+    cout << endl;
+  }
+
+  if (matrix.empty()) {
+    cout << "Empty matrix";
+    return 0;
+  }
+
+  if (matrix[0].empty()) {
+    cout << "Empty row";
+    return 0;
+  }
+
+  size_t rows = matrix.size();
+  size_t cols = matrix[0].size();
+
+  for (size_t i = 0; i < rows; i++) {
+    if (matrix[i].size() != cols) {
+      cout << "Row #" << i + 1 << " has " << matrix[i].size()
+           << " columns when first row has " << cols << " columns" << endl;
+      return 0;
+    }
+  }
+
+  double totalSum = 0;
+
+  for (size_t i = 0; i < rows; i++) {
+    double sum = 0;
+
+    for (size_t j = 0; j < cols; j++) {
+      sum += matrix[i][j];
+    }
+    cout << "Sum of " << i + 1 << " row = " << sum << endl;
+
+    totalSum += sum;
+  }
+
+  cout << "Total sum = " << totalSum << endl;
+
+  return 0;
+}
